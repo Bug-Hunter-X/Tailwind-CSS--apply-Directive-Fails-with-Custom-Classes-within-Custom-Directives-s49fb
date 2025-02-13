@@ -1,0 +1,24 @@
+The solution is to define your styles directly, rather than relying on `@apply` with custom classes inside directives.  The `@apply` directive should only be used with pre-defined Tailwind classes. 
+
+```html
+<div class="bg-red-500 p-4">
+  <!-- Styles are applied directly -->
+</div>
+```
+
+Alternatively, you can define your custom styles in a separate CSS file and import it into your project, allowing for more organized styling that's decoupled from Tailwind's `@apply` limitations:
+
+```css
+/* custom-styles.css */
+.my-custom-directive {
+  background-color: red;
+  padding: 4px;
+}
+```
+
+```html
+<link rel="stylesheet" href="custom-styles.css">
+<div class="my-custom-directive">
+  <!-- Styles are now applied correctly -->
+</div>
+```
