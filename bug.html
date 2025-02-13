@@ -1,0 +1,13 @@
+This error occurs when using Tailwind's `@apply` directive within a custom directive. The issue is that `@apply` only works with pre-defined Tailwind classes, not with custom ones or CSS variables.  Attempting to use `@apply` with a custom class leads to the class not being applied correctly or silently failing, depending on the Tailwind configuration.
+
+```html
+<div class="my-custom-directive">
+  <!-- This won't apply the custom classes -->
+</div>
+
+@layer utilities {
+  .my-custom-directive {
+    @apply bg-red-500 p-4;
+  }
+}
+```
